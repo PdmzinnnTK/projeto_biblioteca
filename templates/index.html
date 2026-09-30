@@ -43,3 +43,6 @@
 
 
 {% endblock %}
+
+if "id_usuario" not in session:
+return redirect("/login")
