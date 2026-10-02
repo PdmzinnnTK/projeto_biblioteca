@@ -55,7 +55,7 @@ def login():
 
 @app.route("/login/autenticar", methods=["POST"])
 def autenticar():
-    login_usuario = request.form["login"]
+    login_usuario = request.form["email"]
     senha = request.form["senha"]
     try:
         conexao = conectar()
@@ -63,7 +63,7 @@ def autenticar():
         sql = """
             SELECT *
             FROM usuario
-            WHERE login = %s
+            WHERE email = %s
               AND senha = %s
               AND status = 'Ativo'
         """
